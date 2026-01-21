@@ -1,5 +1,8 @@
 <body>
-<style>a:visited{color:#0000EE}</style>
+<style>
+  a {color:blue;}
+  a:visited{color:blue;}
+</style>
 <div id="siteContainer">
 <p>Romig Stanley SAT Vocab Lists</p>
 <button onclick="siteSelect('g')" id="g">Gimkit</button><br>
@@ -9,7 +12,9 @@
 </div>
 <script>
 const combinedOrNot = document.createElement("div");
-combinedOrNot.innerHTML = "<button onclick='combined(this.parentNode.id)'>Combined</button><br><button onclick='single(this.parentNode.id)'>Single</button>";
+combinedOrNot.innerHTML = `
+<button onclick='combined(this.parentNode.id)'>Combined</button><br>
+<button onclick='single(this.parentNode.id)'>Single</button>`;
 
 function siteSelect(site) {
 document.getElementById("siteContainer").remove();
@@ -29,15 +34,55 @@ function combined(site) {
 document.getElementById(site).remove();
 links = document.createElement("div");
 if (site == 'g') {
-links.innerHTML = "<p>Gimkit (Combined)</p><a href='https://www.gimkit.com/view/695f0ff6da2e31437004a572'>#1</a><br><a href='https://www.gimkit.com/view/695f1034b09bc437eb3a1235'>#2</a><br><a href='https://www.gimkit.com/view/695f10c52b7c5425afa85f83'>#3</a><br><a href='https://www.gimkit.com/view/695f110d6cf0f7fadd97e3b8'>#4</a><br><a href='https://www.gimkit.com/view/695f11b227aa8365e1a3f7bd'>#5</a><br><a href='https://www.gimkit.com/view/695f115fac67c7a25ae9ec99'>#6</a><br><a href='https://www.gimkit.com/view/696ffa9182231a664bd7ae7d'>#7</a><br>"
+links.innerHTML = `
+<p>Gimkit (Combined)</p>
+<a href='https://www.gimkit.com/view/695f0ff6da2e31437004a572'>#1</a><br>
+<a href='https://www.gimkit.com/view/695f1034b09bc437eb3a1235'>#2</a><br>
+<a href='https://www.gimkit.com/view/695f10c52b7c5425afa85f83'>#3</a><br>
+<a href='https://www.gimkit.com/view/695f110d6cf0f7fadd97e3b8'>#4</a><br>
+<a href='https://www.gimkit.com/view/695f11b227aa8365e1a3f7bd'>#5</a><br>
+<a href='https://www.gimkit.com/view/695f115fac67c7a25ae9ec99'>#6</a><br>
+<a href='https://www.gimkit.com/view/696ffa9182231a664bd7ae7d'>#7</a><br>`;
 } else if (site == 'b') {
-links.innerHTML = "<p>Blooket (Combined)</p><a href='https://dashboard.blooket.com/set/693c66a9697cc125474c03f2'>#1</a><br><a href='https://dashboard.blooket.com/set/693c684226cd9e8d29582051'>#2</a><br><a href='https://dashboard.blooket.com/set/693c695cbbb7e3b148575e45'>#3</a><br><a href='https://dashboard.blooket.com/set/693c6a0623077e558ddba77d'>#4</a><br><a href='https://dashboard.blooket.com/set/693c6a5a44d1223118a0b62d'>#5</a><br><a href='https://dashboard.blooket.com/set/693c6aa237fd5e76126e613d'>#6</a><br><a href='https://dashboard.blooket.com/set/696ffad54f094a6af4e58d4e'>#7</a><br>"
+links.innerHTML = `
+<p>Blooket (Combined)</p>
+<a href='https://dashboard.blooket.com/set/693c66a9697cc125474c03f2'>#1</a><br>
+<a href='https://dashboard.blooket.com/set/693c684226cd9e8d29582051'>#2</a><br>
+<a href='https://dashboard.blooket.com/set/693c695cbbb7e3b148575e45'>#3</a><br>
+<a href='https://dashboard.blooket.com/set/693c6a0623077e558ddba77d'>#4</a><br>
+<a href='https://dashboard.blooket.com/set/693c6a5a44d1223118a0b62d'>#5</a><br>
+<a href='https://dashboard.blooket.com/set/693c6aa237fd5e76126e613d'>#6</a><br>
+<a href='https://dashboard.blooket.com/set/696ffad54f094a6af4e58d4e'>#7</a><br>`;
 } else if (site == 'q') {
-links.innerHTML = "<p>Quizlet (Combined)</p><a href='https://quizlet.com/1090432175'>#1</a><br><a href='https://quizlet.com/1090433246'>#2</a><br><a href='https://quizlet.com/1090435294'>#3</a><br><a href='https://quizlet.com/1092835700'>#4</a><br><a href='https://quizlet.com/1103456553'>#5</a><br><a href='https://quizlet.com/1103458854/romig-stanley-combined-sat-6-flash-cards/?i=61cz81&x=1jqt'>#6</a><br><a href='https://quizlet.com/1133238157/romig-stanley-combined-sat-7-flash-cards'>#7</a><br>"
+links.innerHTML = `
+<p>Quizlet (Combined)</p>
+<a href='https://quizlet.com/1090432175'>#1</a><br>
+<a href='https://quizlet.com/1090433246'>#2</a><br>
+<a href='https://quizlet.com/1090435294'>#3</a><br>
+<a href='https://quizlet.com/1092835700'>#4</a><br>
+<a href='https://quizlet.com/1103456553'>#5</a><br>
+<a href='https://quizlet.com/1103458854'>#6</a><br>
+<a href='https://quizlet.com/1133238157'>#7</a><br>`;
 } else if (site == 'k') {
-links.innerHTML = "<p>Kahoot (Combined)</p><a href='https://create.kahoot.it/share/romig-stanley-combined-sat-vocab-1/9c2b8b27-5a7a-45f1-b2ce-b84c15a36cb0'>#1</a><br><a href='https://create.kahoot.it/share/romig-stanley-combined-sat-vocab-2/6d98f537-6419-48f0-b79e-47a05d306a62'>#2</a><br><a href='https://create.kahoot.it/share/romig-stanley-combined-sat-vocab-3/41fd6e8c-6f8b-43f3-a40a-1c3f79165949'>#3</a><br><a href='https://create.kahoot.it/share/romig-stanley-combined-sat-vocab-4/af5364ae-73f1-465d-a6ac-588c21953f35'>#4</a><br><a href='https://create.kahoot.it/share/romig-stanley-combined-sat-vocab-5/5f564f0a-d71f-4fdd-8809-4027b9782cf0'>#5</a><br><a href='https://create.kahoot.it/share/romig-stanley-combined-sat-vocab-2-6/11d24f4e-60b4-4daf-be77-b824aff958e3'>#6</a><br><a href='https://create.kahoot.it/details/abd89959-9e2d-4686-8d35-4ff0a455d361'>#7</a>"
+links.innerHTML = `
+<p>Kahoot (Combined)</p>
+<a href='https://create.kahoot.it/details/9c2b8b27-5a7a-45f1-b2ce-b84c15a36cb0'>#1</a><br>
+<a href='https://create.kahoot.it/details/6d98f537-6419-48f0-b79e-47a05d306a62'>#2</a><br>
+<a href='https://create.kahoot.it/details/41fd6e8c-6f8b-43f3-a40a-1c3f79165949'>#3</a><br>
+<a href='https://create.kahoot.it/details/af5364ae-73f1-465d-a6ac-588c21953f35'>#4</a><br>
+<a href='https://create.kahoot.it/details/5f564f0a-d71f-4fdd-8809-4027b9782cf0'>#5</a><br>
+<a href='https://create.kahoot.it/details/11d24f4e-60b4-4daf-be77-b824aff958e3'>#6</a><br>
+<a href='https://create.kahoot.it/details/abd89959-9e2d-4686-8d35-4ff0a455d361'>#7</a><br>`;
 } else {
-links.innerHTML = "<p>Plain (Combined)</p><a href='plain/combined/1'>#1</a><br><a href='plain/combined/2'>#2</a><br><a href='plain/combined/3'>#3</a><br><a href='plain/combined/4'>#4</a><br><a href='plain/combined/5'>#5</a><br><a href='plain/combined/6'>#6</a><br><a href='plain/combined/7'>#7</a><br>"
+links.innerHTML = `
+<p>Plain (Combined)</p>
+<a href='plain/combined/1'>#1</a><br>
+<a href='plain/combined/2'>#2</a><br>
+<a href='plain/combined/3'>#3</a><br>
+<a href='plain/combined/4'>#4</a><br>
+<a href='plain/combined/5'>#5</a><br>
+<a href='plain/combined/6'>#6</a><br>
+<a href='plain/combined/7'>#7</a><br>`;
 }
 document.body.appendChild(links);
 };
@@ -45,15 +90,55 @@ function single(site) {
 document.getElementById(site).remove();
 links = document.createElement("div");
 if (site == 'g') {
-links.innerHTML = "<p>Gimkit (Single)</p><a href='https://www.gimkit.com/view/695eff4d30205fe0d8d45a08'>#1</a><br><a href='https://www.gimkit.com/view/695f00582c97c870492af9cd'>#2</a><br><a href='https://www.gimkit.com/view/695f0bf02fb1cc408c3f0ff9'>#3</a><br><a href='https://www.gimkit.com/view/695f0c5ea807d489580db483'>#4</a><br><a href='https://www.gimkit.com/view/695f0ca4da2e314370026e10'>#5</a><br><a href='https://www.gimkit.com/view/695f0ce8a807d489580e221d'>#6</a><br><a href='https://www.gimkit.com/view/696ffb5a83033ce82f8391f1'>#7</a><br>"
+links.innerHTML = `
+<p>Gimkit (Single)</p>
+<a href='https://www.gimkit.com/view/695eff4d30205fe0d8d45a08'>#1</a><br>
+<a href='https://www.gimkit.com/view/695f00582c97c870492af9cd'>#2</a><br>
+<a href='https://www.gimkit.com/view/695f0bf02fb1cc408c3f0ff9'>#3</a><br>
+<a href='https://www.gimkit.com/view/695f0c5ea807d489580db483'>#4</a><br>
+<a href='https://www.gimkit.com/view/695f0ca4da2e314370026e10'>#5</a><br>
+<a href='https://www.gimkit.com/view/695f0ce8a807d489580e221d'>#6</a><br>
+<a href='https://www.gimkit.com/view/696ffb5a83033ce82f8391f1'>#7</a><br>`;
 } else if (site == 'b') {
-links.innerHTML = "<p>Blooket (Single)</p><a href='https://dashboard.blooket.com/set/693c62e8eb07faebd62dbf94'>#1</a><br><a href='https://dashboard.blooket.com/set/693c63a93f17780d9c8a4166'>#2</a><br><a href='https://dashboard.blooket.com/set/693c63d5697cc125474c0366'>#3</a><br><a href='https://dashboard.blooket.com/set/693c6486e32b04492d4411b5'>#4</a><br><a href='https://dashboard.blooket.com/set/693c64dd7e3dd19ec490f5c5'>#5</a><br><a href='https://dashboard.blooket.com/set/693c65404a8a3e0e8f625e1c'>#6</a><br><a href='https://dashboard.blooket.com/set/696ffc9c5c72bd0c8d66c246'>#7</a><br>"
+links.innerHTML = `
+<p>Blooket (Single)</p>
+<a href='https://dashboard.blooket.com/set/693c62e8eb07faebd62dbf94'>#1</a><br>
+<a href='https://dashboard.blooket.com/set/693c63a93f17780d9c8a4166'>#2</a><br>
+<a href='https://dashboard.blooket.com/set/693c63d5697cc125474c0366'>#3</a><br>
+<a href='https://dashboard.blooket.com/set/693c6486e32b04492d4411b5'>#4</a><br>
+<a href='https://dashboard.blooket.com/set/693c64dd7e3dd19ec490f5c5'>#5</a><br>
+<a href='https://dashboard.blooket.com/set/693c65404a8a3e0e8f625e1c'>#6</a><br>
+<a href='https://dashboard.blooket.com/set/696ffc9c5c72bd0c8d66c246'>#7</a><br>`;
 } else if (site == 'q') {
-links.innerHTML = "<p>Quizlet (Single)</p><a href='https://quizlet.com/1090416158'>#1</a><br><a href='https://quizlet.com/1090419277'>#2</a><br><a href='https://quizlet.com/1090421167'>#3</a><br><a href='https://quizlet.com/1092813800'>#4</a><br><a href='https://quizlet.com/1103453809'>#5</a><br><a href='https://quizlet.com/1103906665'>#6</a><br><a href='https://quizlet.com/1133229230/romig-stanley-sat-vocab-7-flash-cards/'>#7</a><br>"
+links.innerHTML = `
+<p>Quizlet (Single)</p>
+<a href='https://quizlet.com/1090416158'>#1</a><br>
+<a href='https://quizlet.com/1090419277'>#2</a><br>
+<a href='https://quizlet.com/1090421167'>#3</a><br>
+<a href='https://quizlet.com/1092813800'>#4</a><br>
+<a href='https://quizlet.com/1103453809'>#5</a><br>
+<a href='https://quizlet.com/1103906665'>#6</a><br>
+<a href='https://quizlet.com/1133229230'>#7</a><br>`;
 } else if (site == 'k') {
-links.innerHTML = "<p>Kahoot (Single)</p><a href='https://create.kahoot.it/details/0016db1c-59a8-4808-b809-ea4b73cac47c'>#1</a><br><a href='https://create.kahoot.it/details/827e412f-e3d2-49ac-a81d-ccb3fe52b7cd'>#2</a><br><a href='https://create.kahoot.it/details/3d0dac3e-f674-489c-aa4d-5c2b77d079c7'>#3</a><br><a href='https://create.kahoot.it/details/1ca68361-0896-4a21-a7a8-57c2b4f75a71'>#4</a><br><a href='https://create.kahoot.it/details/7ac0d945-fb67-49d2-b378-524fd6bada37'>#5</a><br><a href='https://create.kahoot.it/details/ea1b3281-663a-4220-ba0d-ead4baf4f103'>#6</a><br><a href='https://create.kahoot.it/details/b2241435-65b7-4664-948c-c0de054cdacd'>#7</a><br>"
+links.innerHTML = `
+<p>Kahoot (Single)</p>
+<a href='https://create.kahoot.it/details/0016db1c-59a8-4808-b809-ea4b73cac47c'>#1</a><br>
+<a href='https://create.kahoot.it/details/827e412f-e3d2-49ac-a81d-ccb3fe52b7cd'>#2</a><br>
+<a href='https://create.kahoot.it/details/3d0dac3e-f674-489c-aa4d-5c2b77d079c7'>#3</a><br>
+<a href='https://create.kahoot.it/details/1ca68361-0896-4a21-a7a8-57c2b4f75a71'>#4</a><br>
+<a href='https://create.kahoot.it/details/7ac0d945-fb67-49d2-b378-524fd6bada37'>#5</a><br>
+<a href='https://create.kahoot.it/details/ea1b3281-663a-4220-ba0d-ead4baf4f103'>#6</a><br>
+<a href='https://create.kahoot.it/details/b2241435-65b7-4664-948c-c0de054cdacd'>#7</a><br>`;
 } else {
-links.innerHTML = "<p>Plain (Single)</p><a href='plain/single/1'>#1</a><br><a href='plain/single/2'>#2</a><br><a href='plain/single/3'>#3</a><br><a href='plain/single/4'>#4</a><br><a href='plain/single/5'>#5</a><br><a href='plain/single/6'>#6</a><br><a href='plain/single/7'>#7</a><br>"
+links.innerHTML = `
+<p>Plain (Single)</p>
+<a href='plain/single/1'>#1</a><br>
+<a href='plain/single/2'>#2</a><br>
+<a href='plain/single/3'>#3</a><br>
+<a href='plain/single/4'>#4</a><br>
+<a href='plain/single/5'>#5</a><br>
+<a href='plain/single/6'>#6</a><br>
+<a href='plain/single/7'>#7</a><br>`;
 }
 document.body.appendChild(links);
 };
