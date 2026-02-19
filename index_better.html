@@ -1,0 +1,57 @@
+<body>
+    <style>
+      a {color:blue;}
+      a:visited{color:blue;}
+    </style>
+<script>
+config = {
+    "header": "Romig Stanley SAT Vocab Lists",
+    "sitesAndLinks": {
+        "Gimkit": [
+            [], // Single
+            [
+                'https://www.gimkit.com/view/695f0ff6da2e31437004a572',
+                'https://www.gimkit.com/view/695f1034b09bc437eb3a1235',
+                'https://www.gimkit.com/view/695f10c52b7c5425afa85f83',
+                'https://www.gimkit.com/view/695f110d6cf0f7fadd97e3b8',
+                'https://www.gimkit.com/view/695f11b227aa8365e1a3f7bd',
+                'https://www.gimkit.com/view/695f115fac67c7a25ae9ec99',
+                'https://www.gimkit.com/view/696ffa9182231a664bd7ae7d',
+                'unavailable',
+                'unavailable',
+                'unavailable',
+                'unavailable',
+                'unavailable'
+            ] // Combined
+        ] // If there is only one list, don't show "(Single)" or "(Combined)"
+    } 
+}
+const title = document.createElement("title");
+title.innerHTML = config["header"];
+document.body.appendChild(title);
+
+siteSelectHtml = `<p>${config["header"]}</p>`
+for (const [key, value] of Object.entries(config["sitesAndLinks"])) {
+    siteSelectHtml += `<button onclick="siteSelect('${key}')" id="${key}">${key}</button><br>`
+    console.log(`${key}: ${value}`);
+}
+const siteSelectDiv = document.createElement("div");
+siteSelectDiv.setAttribute("id", "siteContainer");
+siteSelectDiv.innerHTML = siteSelectHtml;
+document.body.appendChild(siteSelectDiv);
+
+function siteSelect(site) {
+    if (config["sitesAndLinks"][site].length == 2) {
+        const combinedOrNot = document.createElement("div");
+        combinedOrNot.innerHTML = `
+        <button onclick='combined(this.parentNode.id)'>Combined</button><br>
+        <button onclick='single(this.parentNode.id)'>Single</button>
+        `;
+        combinedOrNot.innerHTML = `<p>${site}</p>` + combinedOrNot.innerHTML;
+    }
+}
+function showLinks(links) {
+
+}
+</script>
+</body>
