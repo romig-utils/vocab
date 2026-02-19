@@ -8,8 +8,10 @@ config = {
     "header": "Romig Stanley SAT Vocab Lists",
     "sitesAndLinks": {
         "Gimkit": [
-            [], // Single
-            [
+            [ // Single
+                "unavailable"
+            ],
+            [ // Combined
                 'https://www.gimkit.com/view/695f0ff6da2e31437004a572',
                 'https://www.gimkit.com/view/695f1034b09bc437eb3a1235',
                 'https://www.gimkit.com/view/695f10c52b7c5425afa85f83',
@@ -22,8 +24,27 @@ config = {
                 'unavailable',
                 'unavailable',
                 'unavailable'
-            ] // Combined
-        ] // If there is only one list, don't show "(Single)" or "(Combined)"
+            ]
+        ],
+        "Blooket": [
+            [ // Single
+                "unavailable"
+            ],
+            [ // Combined
+                'https://dashboard.blooket.com/set/693c66a9697cc125474c03f2',
+                'https://dashboard.blooket.com/set/693c684226cd9e8d29582051',
+                'https://dashboard.blooket.com/set/693c695cbbb7e3b148575e45',
+                'https://dashboard.blooket.com/set/693c6a0623077e558ddba77d',
+                'https://dashboard.blooket.com/set/693c6a5a44d1223118a0b62d',
+                'https://dashboard.blooket.com/set/693c6aa237fd5e76126e613d',
+                'https://dashboard.blooket.com/set/696ffad54f094a6af4e58d4e',
+                'unavailable',
+                'unavailable',
+                'unavailable',
+                'unavailable',
+                'unavailable'
+            ]
+        ],
     } 
 }
 const title = document.createElement("title");
@@ -41,17 +62,48 @@ siteSelectDiv.innerHTML = siteSelectHtml;
 document.body.appendChild(siteSelectDiv);
 
 function siteSelect(site) {
+    document.getElementById("siteContainer").remove();
     if (config["sitesAndLinks"][site].length == 2) {
         const combinedOrNot = document.createElement("div");
+        combinedOrNot.setAttribute("id", site);
         combinedOrNot.innerHTML = `
-        <button onclick='combined(this.parentNode.id)'>Combined</button><br>
-        <button onclick='single(this.parentNode.id)'>Single</button>
+            <button onclick='showLinks(this.parentNode.id,"c")'>Combined</button><br>
+            <button onclick='showLinks(this.parentNode.id,"s")'>Single</button>
         `;
         combinedOrNot.innerHTML = `<p>${site}</p>` + combinedOrNot.innerHTML;
+        document.body.appendChild(combinedOrNot);
+    } else {
+        showLinks(site,"n")
     }
 }
-function showLinks(links) {
+function showLinks(site,listType) {
+    if (listType != "n") {
+        document.getElementById(site).remove();
+    }
 
+    if (listType == "c") {
+        links = config["sitesAndLinks"][site][1]
+        suffix = " (Combined)"
+    } else if (listType == "s") {
+        links = config["sitesAndLinks"][site][0]
+        suffix = " (Single)"
+    } else {
+        links = config["sitesAndLinks"][site][0]
+        suffix = ""
+    }
+
+    html = `<p>${site}${suffix}</p>`
+    for (let i = 0; i < links.length; i++) {
+        html += `<a href="${links[i]}">#${i+1}</a><br>`;
+    }
+
+    const linkDiv = document.createElement("div");
+    linkDiv.setAttribute("id", "linkDiv");
+    linkDiv.innerHTML = html
+    document.body.appendChild(linkDiv);
 }
 </script>
+<!-- Debugging -->
+<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+<script>eruda.init();</script>
 </body>
