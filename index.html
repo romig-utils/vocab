@@ -4,7 +4,7 @@
 </style>
 
 <div id="linkDiv"></div>
-<script src="listLib.js"></script>
+<script src="listLib_spa.js"></script>
 <script>
     config = {
         "listHeader": "Romig Stanley SAT Vocab Lists",
@@ -174,5 +174,13 @@
             }
         },
     }
-    showList(document.getElementById("linkDiv"),config)
+    parent = document.getElementById("linkDiv")
+    state = ""
+    window.history.replaceState(state, null, "");
+    if (state) {
+        const stateVal = state.split('/').reduce((o, key) => o?.[key], config);
+    }
+    showList(parent,config)
+    
+    // window.history.pushState(state, null, state);
 </script>
