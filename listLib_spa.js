@@ -1,8 +1,8 @@
-function showList(parent,config) {
-    getOptions(parent,config,config);
+function showList(parent,config,state) {
+    getOptions(parent,config,config,state);
 }
 
-function getOptions(parent,config,list) {
+function getOptions(parent,config,list,state) {
     window.history.pushState(state, null, state);
     html = ``;
     parent.replaceChildren();
@@ -22,7 +22,7 @@ function getOptions(parent,config,list) {
     for (const [key, value] of Object.entries(list)) {
         if (typeof value !== "string") {
             document.getElementById(key).onclick = function() {
-                getOptions(parent,config,value);
+                getOptions(parent,config,value,state);
             }
         }
     }
